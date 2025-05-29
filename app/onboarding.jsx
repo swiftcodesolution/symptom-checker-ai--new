@@ -4,6 +4,7 @@ import { useTheme } from "./theme/ThemeContext";
 import { useState } from "react";
 import OnboardingCard from "./components/OnboardingCard";
 import { useRouter } from "expo-router";
+import QuestionCard from "./components/QuestionCard";
 
 const onboardingData = [
   {
@@ -21,6 +22,12 @@ const onboardingData = [
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     bottomText: "Lorem ipsum dolor sit amet, consectetur",
   },
+];
+
+const questionsData = [
+  { text: "What is your age?" },
+  { text: "What symptoms are you experiencing?" },
+  { text: "Any medical history?" },
 ];
 
 const Onboarding = () => {
@@ -44,6 +51,12 @@ const Onboarding = () => {
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.background }]}
     >
+      <QuestionCard
+        question={questionsData[currentIndex].text}
+        totalQuestions={questionsData.length}
+        activeIndex={currentIndex}
+      />
+
       <OnboardingCard
         title={onboardingData[currentIndex].title}
         text={onboardingData[currentIndex].text}

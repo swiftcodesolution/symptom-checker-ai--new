@@ -2,7 +2,9 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../theme/ThemeContext";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Button from "../components/Button";
+import Button from "../components/PrimaryButton";
+import TitleText from "../components/TitleText";
+import SubText from "../components/SubText";
 
 const AuthMain = () => {
   const { theme } = useTheme();
@@ -12,12 +14,13 @@ const AuthMain = () => {
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.background }]}
     >
-      <Text style={[styles.title, { color: theme.text }]}>
-        Let's Get Started
-      </Text>
-      <Text style={[styles.text, { color: theme.text }]}>
-        Find the best AI assistance for your mental wellbeing on Symptom Checker
-      </Text>
+      <TitleText style={styles.title} title="Let's Get Started" />
+
+      <SubText
+        style={styles.text}
+        textContent="Find the best AI assistance for your mental wellbeing on Symptom Checker"
+      />
+
       <View>
         <Button
           title="Sign up with Email"
@@ -56,8 +59,8 @@ export default AuthMain;
 
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", padding: 20 },
-  title: { fontSize: 42, textAlign: "center", marginBottom: 20 },
-  text: { fontSize: 28, textAlign: "center", marginBottom: 40 },
+  title: { textAlign: "center", marginBottom: 20 },
+  text: { textAlign: "center", marginBottom: 40 },
   emailBtn: { marginBottom: 40 },
   smallText: { fontSize: 16, textAlign: "center", marginBottom: 40 },
   socialBtns: { gap: 26, marginBottom: 60 },

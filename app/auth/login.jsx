@@ -10,9 +10,11 @@ import { useTheme } from "../theme/ThemeContext";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Button from "../components/Button";
+import Button from "../components/PrimaryButton";
 import * as LocalAuthentication from "expo-local-authentication";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import TitleText from "../components/TitleText";
+import SubText from "../components/SubText";
 
 const Login = () => {
   const { theme } = useTheme();
@@ -22,7 +24,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    router.push("/user-info-collection");
+    router.push("/auth/otp");
   };
 
   const handleBiometricLogin = async () => {
@@ -60,12 +62,12 @@ const Login = () => {
     >
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View>
-          <Text style={[styles.title, { color: theme.text }]}>
-            Create an account
-          </Text>
-          <Text style={[styles.text, { color: theme.text }]}>
-            Welcome to Symptoms Diagnosis App
-          </Text>
+          <TitleText style={styles.title} title="Sign in" />
+
+          <SubText
+            style={styles.text}
+            textContent="Welcome back to Symptoms Diagnosis App"
+          />
 
           <View style={styles.form}>
             <TextInput
@@ -146,9 +148,9 @@ export default Login;
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  scrollContent: { flexGrow: 1, justifyContent: "space-between", padding: 20 },
-  title: { fontSize: 42, textAlign: "center", marginBottom: 20 },
-  text: { fontSize: 28, textAlign: "center", marginBottom: 40 },
+  scrollContent: { flexGrow: 1, justifyContent: "center", padding: 20 },
+  title: { textAlign: "center", marginBottom: 20 },
+  text: { textAlign: "center", marginBottom: 40 },
 
   form: { gap: 18 },
   input: {

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { useTheme } from "../theme/ThemeContext";
-import Button from "./Button";
+import Button from "./PrimaryButton";
 import ProgressDots from "./ProgressDots";
 
 const OnboardingCard = ({

@@ -9,7 +9,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "../theme/ThemeContext";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import Button from "../components/Button";
+import Button from "../components/PrimaryButton";
+import TitleText from "../components/TitleText";
+import SubText from "../components/SubText";
 
 const Signup = () => {
   const { theme } = useTheme();
@@ -19,19 +21,22 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSignup = () => {};
+  const handleSignup = () => {
+    router.push("/auth/otp");
+  };
 
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.background }]}
     >
       <View>
-        <Text style={[styles.title, { color: theme.text }]}>
-          Create an account
-        </Text>
-        <Text style={[styles.text, { color: theme.text }]}>
-          Welcome to Symptoms Diagnosis App
-        </Text>
+        <TitleText style={styles.title} title="Create an account" />
+
+        <SubText
+          style={styles.text}
+          textContent="Welcome to Symptoms Diagnosis App"
+        />
+
         <View style={styles.form}>
           <TextInput
             style={[styles.input, { color: theme.btnText }]}
@@ -80,9 +85,9 @@ const Signup = () => {
 export default Signup;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "space-between", padding: 20 },
-  title: { fontSize: 42, textAlign: "center", marginBottom: 20 },
-  text: { fontSize: 28, textAlign: "center", marginBottom: 40 },
+  container: { flex: 1, justifyContent: "center", gap: 60, padding: 20 },
+  title: { textAlign: "center", marginBottom: 20 },
+  text: { textAlign: "center", marginBottom: 40 },
 
   form: { gap: 18 },
   input: {

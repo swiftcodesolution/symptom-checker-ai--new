@@ -39,6 +39,13 @@
             "NSFaceIDUsageDescription": "Enable Face ID for secure login"
           }
         }
+      ],
+      [
+        "expo-video",
+        {
+          "supportsBackgroundPlayback": true,
+          "supportsPictureInPicture": true
+        }
       ]
     ]
   }
