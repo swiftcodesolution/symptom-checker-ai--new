@@ -9,18 +9,41 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "../theme/ThemeContext";
 import { useRouter } from "expo-router";
 import { useRef, useState } from "react";
-import Button from "../components/PrimaryButton";
+import PrimaryButton from "../components/PrimaryButton";
 import TitleText from "../components/TitleText";
 import SubText from "../components/SubText";
+
+const OTPDigits = ["", "", "", ""];
 
 const OTP = () => {
   const { theme } = useTheme();
   const router = useRouter();
   const inputs = useRef([]);
 
-  const [OTP, setOTP] = useState(["", "", "", ""]);
+  const [OTP, setOTP] = useState(OTPDigits);
 
-  const handleCodeChange = (text, index) => {
+  const handleSubmit = () => {
+    const fullOTP = OTP.join("");
+
+    if (fullOTP.length === 6 && /^\d{6}$/.test(fullOTP)) {
+      console.log("code varified");
+
+      router.push("/auth/signup-success");
+    } else {
+      console.log("error");
+
+      router.push("/auth/signup-success");
+    }
+  };
+
+  const handleResend = () => {
+    console.log("code resent!");
+
+    setOTP(OTPDigits);
+    inputs.current[0].focus();
+  };
+
+  const handleTyping = (text, index) => {
     if (/^\d?$/.test(text)) {
       const newOTP = [...OTP];
       newOTP[index] = text;
@@ -34,33 +57,14 @@ const OTP = () => {
           // OTP is possibly complete, check and hide keyboard
           const isComplete = newOTP.every((val) => val.length === 1);
           if (isComplete) {
-            inputs.current[index].blur(); // Hides the keyboard
+            inputs.current[index].blur();
+            handleSubmit();
           }
         }
       } else if (!text && index > 0) {
         inputs.current[index - 1].focus();
       }
     }
-  };
-
-  const handleCodeSubmit = () => {
-    const code = OTP.join("");
-    if (code.length === 6 && /^\d{6}$/.test(code)) {
-      console.log("code varified");
-
-      router.push("/auth/signup-success");
-    } else {
-      console.log("invalid/incomplete code");
-
-      router.push("/auth/signup-success");
-    }
-  };
-
-  const handleResendCode = () => {
-    console.log("code resent!");
-
-    setOTP(["", "", "", ""]);
-    inputs.current[0].focus();
   };
 
   return (
@@ -81,7 +85,7 @@ const OTP = () => {
               key={index}
               style={styles.otpInput}
               value={digit}
-              onChangeText={(text) => handleCodeChange(text, index)}
+              onChangeText={(text) => handleTyping(text, index)}
               keyboardType="numeric"
               maxLength={1}
               ref={(input) => (inputs.current[index] = input)}
@@ -90,13 +94,13 @@ const OTP = () => {
           ))}
         </View>
 
-        <TouchableOpacity onPress={handleResendCode}>
+        <TouchableOpacity onPress={handleResend}>
           <Text style={styles.smallText}>Resend Code</Text>
         </TouchableOpacity>
         <View>
-          <Button
+          <PrimaryButton
             title="Submit"
-            pressFunction={handleCodeSubmit}
+            pressFunction={handleSubmit}
             style={[styles.submitBtn, { backgroundColor: theme.primaryBtnBg }]}
           />
         </View>

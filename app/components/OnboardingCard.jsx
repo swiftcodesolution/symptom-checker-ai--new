@@ -10,7 +10,6 @@ const OnboardingCard = ({
   activeIndex,
   handlePressNext,
   handlePressSkip,
-  bottomText,
 }) => {
   const { theme } = useTheme();
 
@@ -24,7 +23,11 @@ const OnboardingCard = ({
       <Text style={[styles.cardTitle, { color: theme.text }]}>{title}</Text>
       <Text style={[styles.cardText, { color: theme.text }]}>{text}</Text>
 
-      <ProgressDots totalScreens={totalScreens} activeIndex={activeIndex} />
+      <ProgressDots
+        style={styles.progressDots}
+        totalScreens={totalScreens}
+        activeIndex={activeIndex}
+      />
 
       <View style={styles.btnsDiv}>
         <Button
@@ -40,10 +43,6 @@ const OnboardingCard = ({
           />
         )}
       </View>
-
-      <Text style={[styles.bottomText, { color: theme.text }]}>
-        {bottomText}
-      </Text>
     </View>
   );
 };
@@ -56,8 +55,8 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     paddingHorizontal: 20,
   },
-  cardTitle: { fontSize: 28, fontWeight: "400", marginBottom: 12 },
-  cardText: { fontSize: 20, fontWeight: "400", marginBottom: 42 },
-  btnsDiv: { flexDirection: "row", gap: 5, marginBottom: 52 },
-  bottomText: { fontSize: 16, textAlign: "center" },
+  cardTitle: { fontSize: 28, marginBottom: 12 },
+  cardText: { fontSize: 20, marginBottom: 32 },
+  progressDots: { marginBottom: 62 },
+  btnsDiv: { flexDirection: "row", gap: 10 },
 });

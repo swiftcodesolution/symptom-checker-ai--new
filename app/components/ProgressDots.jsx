@@ -1,11 +1,11 @@
 import { StyleSheet, View } from "react-native";
 import { useTheme } from "../theme/ThemeContext";
 
-const ProgressDots = ({ totalScreens, activeIndex }) => {
+const ProgressDots = ({ totalScreens, activeIndex, style }) => {
   const { theme } = useTheme();
 
   return (
-    <View style={styles.progressDotsDiv}>
+    <View style={[styles.progressDotsDiv, style]}>
       {Array.from({ length: totalScreens }, (_, index) => (
         <View
           key={index}
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 5,
     alignItems: "flex-start",
-    marginBottom: 62,
   },
   progressDot: {
     width: 20,

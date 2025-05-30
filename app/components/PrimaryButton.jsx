@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useTheme } from "../theme/ThemeContext";
 
-const Button = ({ pressFunction, title, style }) => {
+const PrimaryButton = ({ pressFunction, title, style }) => {
   const { theme } = useTheme();
 
   return (
@@ -11,7 +11,7 @@ const Button = ({ pressFunction, title, style }) => {
   );
 };
 
-export default Button;
+export default PrimaryButton;
 
 const styles = StyleSheet.create({
   btn: {

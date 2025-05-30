@@ -8,19 +8,28 @@ import {
 import { useTheme } from "../theme/ThemeContext";
 import ProgressDots from "./ProgressDots";
 import Icon from "react-native-vector-icons/Feather";
-import TitleText from "./TitleText";
 
-const QuestionCard = ({ question, activeIndex, totalQuestions }) => {
+const QuestionCard = ({
+  question,
+  userAnswer,
+  activeIndex,
+  totalQuestions,
+}) => {
   const { theme } = useTheme();
 
   return (
     <View
       style={[styles.questionCard, { backgroundColor: theme.onboardingCardBg }]}
     >
-      <ProgressDots activeIndex={activeIndex} totalScreens={totalQuestions} />
-      <Text>{activeIndex + 1}</Text>
+      <ProgressDots
+        style={styles.progressDots}
+        activeIndex={activeIndex}
+        totalScreens={totalQuestions}
+      />
+      <Text style={styles.questionNumber}>{activeIndex + 1}</Text>
 
-      <TitleText style={styles.text} title={question} />
+      <Text style={[styles.cardTitle, { color: theme.text }]}>{question}</Text>
+      <Text style={[styles.cardText, { color: theme.text }]}>{userAnswer}</Text>
 
       <View style={styles.inputTray}>
         <View style={styles.textInputBox}>
@@ -57,16 +66,19 @@ export default QuestionCard;
 
 const styles = StyleSheet.create({
   questionCard: {
-    paddingHorizontal: 20,
-    paddingVertical: 30,
     borderRadius: 20,
+    paddingVertical: 30,
+    paddingHorizontal: 20,
   },
+  progressDots: { marginBottom: 22 },
+  cardTitle: { fontSize: 28, marginBottom: 12 },
+  cardText: { fontSize: 20, marginBottom: 42 },
+
   inputTray: {
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
     width: "100%",
-    backgroundColor: "#000",
   },
   textInputBox: {
     flexDirection: "row",

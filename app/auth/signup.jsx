@@ -9,7 +9,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "../theme/ThemeContext";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import Button from "../components/PrimaryButton";
+import PrimaryButton from "../components/PrimaryButton";
 import TitleText from "../components/TitleText";
 import SubText from "../components/SubText";
 
@@ -62,7 +62,7 @@ const Signup = () => {
             secureTextEntry
           />
           <View>
-            <Button
+            <PrimaryButton
               title="Sign Up"
               pressFunction={handleSignup}
               style={[styles.emailBtn, { backgroundColor: theme.primaryBtnBg }]}

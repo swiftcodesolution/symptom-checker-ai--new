@@ -2,13 +2,21 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../theme/ThemeContext";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Button from "../components/PrimaryButton";
+import PrimaryButton from "../components/PrimaryButton";
 import TitleText from "../components/TitleText";
 import SubText from "../components/SubText";
 
 const AuthMain = () => {
   const { theme } = useTheme();
   const router = useRouter();
+
+  const handleEmailSignUp = () => {
+    router.push("auth/signup");
+  };
+
+  const handleSocialSignUp = () => {
+    router.push("auth/signup-success");
+  };
 
   return (
     <SafeAreaView
@@ -22,9 +30,9 @@ const AuthMain = () => {
       />
 
       <View>
-        <Button
+        <PrimaryButton
           title="Sign up with Email"
-          pressFunction={() => router.push("/auth/signup")}
+          pressFunction={handleEmailSignUp}
           style={[styles.emailBtn, { backgroundColor: theme.primaryBtnBg }]}
         />
       </View>
@@ -32,14 +40,14 @@ const AuthMain = () => {
         Or Use Instant Sign Up
       </Text>
       <View style={styles.socialBtns}>
-        <Button
+        <PrimaryButton
           title="Sign up with Google"
-          pressFunction={() => {}}
+          pressFunction={handleSocialSignUp}
           style={[styles.socialBtn, { backgroundColor: theme.secondaryBtnBg }]}
         />
-        <Button
+        <PrimaryButton
           title="Sign up with Apple ID"
-          pressFunction={() => {}}
+          pressFunction={handleSocialSignUp}
           style={[styles.socialBtn, { backgroundColor: theme.secondaryBtnBg }]}
         />
       </View>
@@ -64,5 +72,6 @@ const styles = StyleSheet.create({
   emailBtn: { marginBottom: 40 },
   smallText: { fontSize: 16, textAlign: "center", marginBottom: 40 },
   socialBtns: { gap: 26, marginBottom: 60 },
+  socialBtn: {},
   loginText: { textAlign: "center" },
 });

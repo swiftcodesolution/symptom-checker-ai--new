@@ -4,30 +4,20 @@ import { useTheme } from "./theme/ThemeContext";
 import { useState } from "react";
 import OnboardingCard from "./components/OnboardingCard";
 import { useRouter } from "expo-router";
-import QuestionCard from "./components/QuestionCard";
 
 const onboardingData = [
   {
     title: "Welcome To Symptom Diagnostic",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    bottomText: "Lorem ipsum dolor sit amet, consectetur",
   },
   {
     title: "Welcome To Symptom Diagnostic",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    bottomText: "Lorem ipsum dolor sit amet, consectetur",
   },
   {
     title: "Welcome To Symptom Diagnostic",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    bottomText: "Lorem ipsum dolor sit amet, consectetur",
   },
-];
-
-const questionsData = [
-  { text: "What is your age?" },
-  { text: "What symptoms are you experiencing?" },
-  { text: "Any medical history?" },
 ];
 
 const Onboarding = () => {
@@ -51,12 +41,6 @@ const Onboarding = () => {
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.background }]}
     >
-      <QuestionCard
-        question={questionsData[currentIndex].text}
-        totalQuestions={questionsData.length}
-        activeIndex={currentIndex}
-      />
-
       <OnboardingCard
         title={onboardingData[currentIndex].title}
         text={onboardingData[currentIndex].text}
@@ -73,5 +57,5 @@ const Onboarding = () => {
 export default Onboarding;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "flex-end", padding: 20 },
+  container: { flex: 1, justifyContent: "flex-end", paddingHorizontal: 20 },
 });

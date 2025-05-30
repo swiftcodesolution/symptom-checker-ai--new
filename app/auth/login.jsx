@@ -10,7 +10,7 @@ import { useTheme } from "../theme/ThemeContext";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Button from "../components/PrimaryButton";
+import PrimaryButton from "../components/PrimaryButton";
 import * as LocalAuthentication from "expo-local-authentication";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import TitleText from "../components/TitleText";
@@ -24,6 +24,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
+    router.push("/auth/otp");
+  };
+
+  const handleSocialLogin = () => {
     router.push("/auth/otp");
   };
 
@@ -91,7 +95,7 @@ const Login = () => {
               <Text style={styles.smallText}>Forgot Password?</Text>
             </TouchableOpacity>
             <View>
-              <Button
+              <PrimaryButton
                 title="Sign In"
                 pressFunction={handleLogin}
                 style={[
@@ -113,17 +117,17 @@ const Login = () => {
           </TouchableOpacity>
 
           <View style={styles.socialBtns}>
-            <Button
-              title="Sign up with Google"
-              pressFunction={() => {}}
+            <PrimaryButton
+              title="Sign in with Google"
+              pressFunction={handleSocialLogin}
               style={[
                 styles.socialBtn,
                 { backgroundColor: theme.secondaryBtnBg },
               ]}
             />
-            <Button
-              title="Sign up with Apple ID"
-              pressFunction={() => {}}
+            <PrimaryButton
+              title="Sign in with Apple ID"
+              pressFunction={handleSocialLogin}
               style={[
                 styles.socialBtn,
                 { backgroundColor: theme.secondaryBtnBg },
@@ -162,6 +166,7 @@ const styles = StyleSheet.create({
   smallText: { fontSize: 16, textAlign: "center" },
 
   socialBtns: { gap: 16, marginBottom: 60 },
+  socialBtn: {},
 
   biometricBtn: {
     alignItems: "center",
