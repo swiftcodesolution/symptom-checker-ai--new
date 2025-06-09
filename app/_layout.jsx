@@ -11,8 +11,7 @@ export default function RootLayout() {
           name="collect-user-info"
           options={{ headerShown: false }}
         />
-        {/* Add Home screen later */}
-        {/* <Stack.Screen name="home" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="main" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
