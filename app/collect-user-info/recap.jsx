@@ -17,7 +17,7 @@ const Recap = () => {
   const editAnswer = () => {};
 
   const handleDone = () => {
-    router.push("/main");
+    router.push("/(main)");
   };
 
   return (
