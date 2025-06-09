@@ -6,7 +6,7 @@ import { useTheme } from "../theme/ThemeContext";
 import OnboardingCard from "../components/OnboardingCard";
 import QuestionCard from "../components/QuestionCard";
 
-const questionsData = [
+export const questionsData = [
   {
     question: "What is your age?",
     userAnswer:
@@ -75,5 +75,5 @@ const CollectUserInfo = () => {
 export default CollectUserInfo;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "flex-end", padding: 20 },
+  container: { flex: 1, justifyContent: "flex-end", gap: 20, padding: 20 },
 });

@@ -7,6 +7,10 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="onboarding" options={{ headerShown: false }} />
         <Stack.Screen name="auth" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="collect-user-info"
+          options={{ headerShown: false }}
+        />
         {/* Add Home screen later */}
         {/* <Stack.Screen name="home" options={{ headerShown: false }} /> */}
       </Stack>
