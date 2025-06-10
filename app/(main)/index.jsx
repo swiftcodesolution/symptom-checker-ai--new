@@ -12,7 +12,6 @@ import CustomHeader from "../components/CustomHeader";
 import Icon from "react-native-vector-icons/Feather";
 import { useTheme } from "../theme/ThemeContext";
 import TextBubble from "../components/TextBubble";
-import { useState } from "react";
 
 const convo = [
   { id: "1", message: "question", sender: "ai" },
