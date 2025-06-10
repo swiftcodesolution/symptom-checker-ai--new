@@ -1,12 +1,10 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomHeader from "../components/CustomHeader";
 import TitleText from "../components/TitleText";
 import SubText from "../components/SubText";
 import SmallButton from "../components/SmallButton";
 import ThreeColumnBox from "../components/ThreeColumnBox";
-import TwoColumnBox from "../components/TwoColumnBox";
 import { useTheme } from "../theme/ThemeContext";
 import DetailsCard from "../components/DetailsCard";
 import PharmacyList from "../components/PharmacyList";

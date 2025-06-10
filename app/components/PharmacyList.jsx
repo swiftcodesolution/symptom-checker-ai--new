@@ -32,7 +32,7 @@ const PharmacyList = () => {
     <View>
       <FlatList
         data={pharmacies}
-        keyExtractor={(pharmacy) => pharmacy.id}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <PharmacyBox name={item.name} address={item.address} />
         )}
