@@ -1,18 +1,11 @@
-import {
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import { FlatList, StyleSheet, View } from "react-native";
 import { useTheme } from "../theme/ThemeContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomHeader from "../components/CustomHeader";
 import TitleText from "../components/TitleText";
 import PrimaryButton from "../components/PrimaryButton";
 import SearchHistoryCard from "../components/SearchHistoryCard";
+import Searchbar from "../components/Searchbar";
 
 const searchHistory = [
   {
@@ -91,10 +84,7 @@ const SearchHistory = () => {
           <TitleText title="Search History" style={styles.pageTitle} />
         </View>
 
-        <View style={styles.inputBox}>
-          <TextInput placeholder="Search your chat" />
-          <Icon name="search" size={24} color={theme.primary} />
-        </View>
+        <Searchbar />
 
         <View style={styles.btnsDiv}>
           <PrimaryButton
@@ -135,17 +125,6 @@ const styles = StyleSheet.create({
   },
 
   pageTitle: { textAlign: "center", marginTop: 40, marginBottom: 20 },
-
-  inputBox: {
-    backgroundColor: "rgba(107, 112, 91, 0.3)",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    borderRadius: 24,
-    marginBottom: 20,
-  },
 
   btnsDiv: { flexDirection: "row", gap: 10 },
 
