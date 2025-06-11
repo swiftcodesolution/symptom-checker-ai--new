@@ -1,7 +1,10 @@
 import { StyleSheet, TextInput, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useTheme } from "../theme/ThemeContext";
 
 const Searchbar = () => {
+  const { theme } = useTheme();
+
   return (
     <View style={styles.searchbar}>
       <TextInput placeholder="Search your chat" />
