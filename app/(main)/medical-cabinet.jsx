@@ -7,9 +7,21 @@ import SmallButton from "../components/SmallButton";
 import TitleText from "../components/TitleText";
 import ThreeColumnBox from "../components/ThreeColumnBox";
 import TwoColumnBox from "../components/TwoColumnBox";
+import { useState } from "react";
+import MedicalModal from "../components/MedicalModal";
 
 const MedicalCabinet = () => {
   const { theme } = useTheme();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+    console.log("gggg");
+  };
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
   const handlePress = () => {
     console.log(`btn pressed!`);
@@ -45,7 +57,7 @@ const MedicalCabinet = () => {
             <SubText textContent="Lab Tests" style={styles.sectionHeading} />
             <SmallButton btnText="See All" pressFunction={handlePress} />
           </View>
-          <TwoColumnBox />
+          <TwoColumnBox onRowPress={openModal} />
         </View>
 
         <View style={styles.section}>
@@ -59,6 +71,8 @@ const MedicalCabinet = () => {
           <ThreeColumnBox />
         </View>
       </ScrollView>
+
+      <MedicalModal visible={modalVisible} onClose={closeModal} />
     </View>
   );
 };

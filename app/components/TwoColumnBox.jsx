@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../theme/ThemeContext";
 
-const TwoColumnBox = () => {
+const TwoColumnBox = ({ onRowPress }) => {
   const { theme } = useTheme();
 
   return (
@@ -20,12 +20,14 @@ const TwoColumnBox = () => {
           <Text style={[styles.cell, styles.headerCell]}>Date</Text>
         </View>
 
-        <View style={styles.row}>
-          <Text style={[styles.cell, styles.wideCell]}>
-            X-Rays: MedlinePlus
-          </Text>
-          <Text style={styles.cell}>2-2-25</Text>
-        </View>
+        <TouchableOpacity onPress={onRowPress}>
+          <View style={styles.row}>
+            <Text style={[styles.cell, styles.wideCell]}>
+              X-Rays: MedlinePlus
+            </Text>
+            <Text style={styles.cell}>2-2-25</Text>
+          </View>
+        </TouchableOpacity>
         <View style={styles.row}>
           <Text style={[styles.cell, styles.wideCell]}>
             X-Rays: MedlinePlus
