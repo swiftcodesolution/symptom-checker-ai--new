@@ -1,14 +1,14 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { useTheme } from "../theme/ThemeContext";
+import { useTheme } from "../../theme/ThemeContext";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomHeader from "../components/CustomHeader";
-import SubText from "../components/SubText";
-import SmallButton from "../components/SmallButton";
-import TitleText from "../components/TitleText";
-import ThreeColumnBox from "../components/ThreeColumnBox";
-import TwoColumnBox from "../components/TwoColumnBox";
+import CustomHeader from "../../components/CustomHeader";
+import SubText from "../../components/SubText";
+import SmallButton from "../../components/SmallButton";
+import TitleText from "../../components/TitleText";
+import ThreeColumnBox from "../../components/ThreeColumnBox";
+import TwoColumnBox from "../../components/TwoColumnBox";
 import { useState } from "react";
-import MedicalModal from "../components/MedicalModal";
+import MedicalModal from "../../components/MedicalModal";
 
 const MedicalCabinet = () => {
   const { theme } = useTheme();

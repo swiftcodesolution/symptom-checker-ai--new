@@ -2,29 +2,46 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Octicons";
 import { useTheme } from "../theme/ThemeContext";
 import SubText from "./SubText";
+import { useNavigation, useRouter } from "expo-router";
 
 const CustomHeader = () => {
   const { theme } = useTheme();
+  const navigation = useNavigation();
+  const router = useRouter();
 
   return (
-    <View style={styles.customHeader}>
-      <TouchableOpacity
-        style={[styles.drawerIcon, { backgroundColor: theme.onboardingCardBg }]}
-      >
-        <Icon name="three-bars" size={24} />
-      </TouchableOpacity>
+    <View>
+      <View style={styles.customHeader}>
+        <TouchableOpacity
+          onPress={() => navigation.openDrawer()}
+          style={[
+            styles.drawerIcon,
+            { backgroundColor: theme.onboardingCardBg },
+          ]}
+        >
+          <Icon name="three-bars" size={24} />
+        </TouchableOpacity>
 
-      <View style={styles.userInfo}>
-        <Image source={require("../../assets/user.jpg")} style={styles.image} />
-        <SubText
-          textContent="Hello Scott"
-          style={[styles.userName, { color: theme.text }]}
-        />
+        <View style={styles.userInfo}>
+          <Image
+            source={require("../../assets/user.jpg")}
+            style={styles.image}
+          />
+        </View>
+
+        <TouchableOpacity
+          style={styles.sosBtn}
+          onPress={() => {
+            router.push("sos");
+          }}
+        >
+          <Text style={styles.sosText}>SOS</Text>
+        </TouchableOpacity>
       </View>
-
-      <TouchableOpacity style={styles.sosBtn}>
-        <Text style={styles.sosText}>SOS</Text>
-      </TouchableOpacity>
+      <SubText
+        textContent="Hello Scott"
+        style={[styles.userName, { color: theme.text }]}
+      />
     </View>
   );
 };
@@ -36,10 +53,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    marginBottom: 20,
   },
-  drawerIcon: { padding: 10, borderRadius: 10 },
+  drawerIcon: {
+    padding: 10,
+    borderRadius: 10,
+    width: "20%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-  userInfo: { alignItems: "center", justifyContent: "center", gap: 20 },
+  userInfo: {
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 20,
+    width: "60%",
+  },
   image: {
     width: 90,
     height: 90,
@@ -49,6 +78,13 @@ const styles = StyleSheet.create({
   },
   userName: { textAlign: "center" },
 
-  sosBtn: { backgroundColor: "#EB2F29", padding: 10, borderRadius: 10 },
+  sosBtn: {
+    backgroundColor: "#EB2F29",
+    padding: 10,
+    borderRadius: 10,
+    width: "20%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   sosText: { color: "#fff", fontSize: 18 },
 });

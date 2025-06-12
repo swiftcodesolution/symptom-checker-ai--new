@@ -1,13 +1,13 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomHeader from "../components/CustomHeader";
-import TitleText from "../components/TitleText";
-import SubText from "../components/SubText";
-import SmallButton from "../components/SmallButton";
-import ThreeColumnBox from "../components/ThreeColumnBox";
-import { useTheme } from "../theme/ThemeContext";
-import DetailsCard from "../components/DetailsCard";
-import PharmacyList from "../components/PharmacyList";
+import CustomHeader from "../../components/CustomHeader";
+import TitleText from "../../components/TitleText";
+import SubText from "../../components/SubText";
+import SmallButton from "../../components/SmallButton";
+import ThreeColumnBox from "../../components/ThreeColumnBox";
+import { useTheme } from "../../theme/ThemeContext";
+import DetailsCard from "../../components/DetailsCard";
+import PharmacyList from "../../components/PharmacyList";
 
 const MedicalWallet = () => {
   const { theme } = useTheme();

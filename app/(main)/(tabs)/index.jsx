@@ -8,10 +8,10 @@ import {
   FlatList,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomHeader from "../components/CustomHeader";
+import CustomHeader from "../../components/CustomHeader";
 import Icon from "react-native-vector-icons/Feather";
-import { useTheme } from "../theme/ThemeContext";
-import TextBubble from "../components/TextBubble";
+import { useTheme } from "../../theme/ThemeContext";
+import TextBubble from "../../components/TextBubble";
 
 const convo = [
   { id: "1", message: "question", sender: "ai" },
