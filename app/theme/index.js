@@ -1,5 +1,5 @@
 export const lightTheme = {
-  background: "#fff",
+  background: "rgba(122,122,122,0)",
   text: "#333",
   primary: "#6B705B",
   secondary: "#A9B0B8",
@@ -10,7 +10,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  background: "#000",
+  background: "rgba(255,255,255,0)",
   text: "#fff",
   primary: "#0a84ff",
   secondary: "#A9B0B8",
