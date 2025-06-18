@@ -2,6 +2,7 @@ import { Tabs } from "expo-router";
 import Icon from "react-native-vector-icons/Ionicons";
 import Icon2 from "react-native-vector-icons/SimpleLineIcons";
 import { useTheme } from "../../theme/ThemeContext";
+import { Image } from "react-native";
 
 const TabLayout = () => {
   const { theme } = useTheme();
@@ -18,7 +19,12 @@ const TabLayout = () => {
         options={{
           title: "Home",
           tabBarIcon: ({ color, size }) => (
-            <Icon name="home" size={size} color={color} />
+            <Image
+              source={require("../../../assets/menu-icons/home.png")}
+              style={[{ tintColor: theme.primary, size: size }]}
+              width={20}
+              height={20}
+            />
           ),
         }}
       />
@@ -27,7 +33,12 @@ const TabLayout = () => {
         options={{
           title: "Medical Cabinet",
           tabBarIcon: ({ color, size }) => (
-            <Icon2 name="drawer" size={size} color={color} />
+            <Image
+              source={require("../../../assets/menu-icons/medical-cabinet.png")}
+              style={[{ tintColor: theme.primary, size: size }]}
+              width={20}
+              height={20}
+            />
           ),
         }}
       />
@@ -36,16 +47,26 @@ const TabLayout = () => {
         options={{
           title: "Medical Wallet",
           tabBarIcon: ({ color, size }) => (
-            <Icon name="wallet" size={size} color={color} />
+            <Image
+              source={require("../../../assets/menu-icons/medical-wallet.png")}
+              style={[{ tintColor: theme.primary, size: size }]}
+              width={20}
+              height={20}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="medical-library"
         options={{
-          title: "Profile",
+          title: "Medical Library",
           tabBarIcon: ({ color, size }) => (
-            <Icon2 name="user" size={size} color={color} />
+            <Image
+              source={require("../../../assets/menu-icons/medical-library.png")}
+              style={[{ tintColor: theme.primary, size: size }]}
+              width={20}
+              height={20}
+            />
           ),
         }}
       />
