@@ -1,15 +1,15 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { useTheme } from "../theme/ThemeContext";
+import { useTheme } from "../../theme/ThemeContext";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomHeader from "../components/CustomHeader";
-import TitleText from "../components/TitleText";
-import Searchbar from "../components/Searchbar";
-import LibraryCard from "../components/LibraryCard";
+import CustomHeader from "../../components/CustomHeader";
+import TitleText from "../../components/TitleText";
+import Searchbar from "../../components/Searchbar";
+import LibraryCard from "../../components/LibraryCard";
 
 const libraryCards = [
   {
     id: "1",
-    imageUrl: require("../../assets/cover.jpg"),
+    imageUrl: require("../../../assets/cover.jpg"),
     text: "Understanding Common Cold vs Flu",
     tag: "General Health",
     date: "2025-06-01",
@@ -17,7 +17,7 @@ const libraryCards = [
   },
   {
     id: "2",
-    imageUrl: require("../../assets/cover.jpg"),
+    imageUrl: require("../../../assets/cover.jpg"),
     text: "AI Insights: Headache Patterns",
     tag: "Neurology",
     date: "2025-05-28",
@@ -25,7 +25,7 @@ const libraryCards = [
   },
   {
     id: "3",
-    imageUrl: require("../../assets/cover.jpg"),
+    imageUrl: require("../../../assets/cover.jpg"),
     text: "When to Worry About a Cough",
     tag: "Respiratory",
     date: "2025-06-03",
@@ -33,7 +33,7 @@ const libraryCards = [
   },
   {
     id: "4",
-    imageUrl: require("../../assets/cover.jpg"),
+    imageUrl: require("../../../assets/cover.jpg"),
     text: "Tracking Abdominal Pain with AI",
     tag: "Gastroenterology",
     date: "2025-06-05",
@@ -41,7 +41,7 @@ const libraryCards = [
   },
   {
     id: "5",
-    imageUrl: require("../../assets/cover.jpg"),
+    imageUrl: require("../../../assets/cover.jpg"),
     text: "Skin Rashes: Image-Based Diagnosis",
     tag: "Dermatology",
     date: "2025-05-30",
@@ -49,7 +49,7 @@ const libraryCards = [
   },
   {
     id: "6",
-    imageUrl: require("../../assets/cover.jpg"),
+    imageUrl: require("../../../assets/cover.jpg"),
     text: "AI for Mental Health: Symptom Tracker",
     tag: "Mental Health",
     date: "2025-06-02",
