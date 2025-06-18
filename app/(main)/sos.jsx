@@ -7,7 +7,6 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomHeader from "../components/CustomHeader";
 import TitleText from "../components/TitleText";
 import SubText from "../components/SubText";
 import SmallButton from "../components/SmallButton";
