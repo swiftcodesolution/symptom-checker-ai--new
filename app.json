@@ -2,7 +2,7 @@
   "expo": {
     "scheme": "symptomchecker",
     "name": "symptom-checker-ai--new",
-    "slug": "symptom-checker-ai--new",
+    "slug": "symptom-checker",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -26,9 +26,6 @@
       },
       "edgeToEdgeEnabled": true,
       "permissions": [
-        "RECORD_AUDIO",
-        "android.permission.USE_BIOMETRIC",
-        "android.permission.USE_FINGERPRINT",
         "RECORD_AUDIO",
         "android.permission.USE_BIOMETRIC",
         "android.permission.USE_FINGERPRINT"
@@ -55,6 +52,13 @@
           "supportsPictureInPicture": true
         }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "8f29cdac-271f-461b-bb65-37a81b48bdff"
+      }
+    },
+    "owner": "swiftcodesolution"
   }
 }
